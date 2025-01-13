@@ -1,24 +1,6 @@
-# README
+# MyDays
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rails学習用のアプリです。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/af0d24b402236fac0c19c8449a611cd1.png)](https://gyazo.com/af0d24b402236fac0c19c8449a611cd1)
