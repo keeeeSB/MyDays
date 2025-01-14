@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/flash_message" %>
+    <div class="container m-5"
+      <%= yield %>
+    </div>
   </body>
 </html>
