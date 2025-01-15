@@ -14,11 +14,11 @@
 
   <div class="col-md-3 text-end">
     <% if logged_in? %>
-      <%= link_to "プロフィール", current_user, class: "btn btn-outline-secondary btn-sm" %>
-      <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class: "btn btn-outline-danger btn-sm" %>
+      <%= link_to "プロフィール", current_user, class: "btn btn-outline-secondary btn-sm me-2" %>
+      <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class: "btn btn-outline-danger btn-sm me-2" %>
     <% else %>
-      <%= link_to "新規登録", signup_path, class: "btn btn-success me-2" %>
-      <%= link_to "ログイン", login_path, class: "btn btn-info me-2" %>
+      <%= link_to "新規登録", signup_path, class: "btn btn-success btn-sm me-2" %>
+      <%= link_to "ログイン", login_path, class: "btn btn-info btn-sm me-2" %>
     <% end %>
   </div>
 </header>
