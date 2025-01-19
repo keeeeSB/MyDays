@@ -11,8 +11,8 @@ describe "ログイン機能", type: :system do
     fill_in "パスワード", with: "password"
     click_button "ログイン"
 
-    expect(current_path).to eq user_path(user)
     expect(page).to have_content "ログインしました。"
+    expect(current_path).to eq user_path(user)
     expect(page).to have_content "#{user.name}さんのプロフィール"
   end
 end
