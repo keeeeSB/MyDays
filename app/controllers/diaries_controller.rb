@@ -17,6 +17,6 @@ class DiariesController < ApplicationController
   private
 
     def diary_params
-      params.require(:diary).permit(:tutle, :content, :written_on)
+      params.require(:diary).permit(:tutle, :content, :written_on, :tag_list)
     end
 end
