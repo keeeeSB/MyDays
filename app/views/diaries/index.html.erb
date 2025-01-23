@@ -1,0 +1,19 @@
+<h2 class="text-center mb-4">ボクの日記</h2>
+
+<% if @diaries.present? %>
+  <% @diaries.each do |diary| %>
+    <div class="card mb-3">
+      <div class="card-header text-center">
+        <h4 class="cared-title"><%= diary.title %></h4>
+        <p class="card-subtitle text-muted">
+          日付： <%= formatted_date(diary) %>
+        </p>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= diary.content %></p>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p class="text-center text-muted">まだ日記がありません。</p>
+<% end %>

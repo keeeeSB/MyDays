@@ -1,11 +1,11 @@
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-  <div class="col-md-3 mb-2 mb-md-0">
-    <%= link_to root_path, class: "d-inline-flex link-body-emphasis text-decoration-none ms-2" do %>
+<header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom">
+  <div class="col-md-3 d-flex align-items-center">
+    <%= link_to root_path, class: "d-inline-flex link-body-emphasis text-decoration-none" do %>
       <%= image_tag "logo.jpeg", alt: "アイコン", width: 40, height: 32 %>
     <% end %>
   </div>
 
-  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+  <ul class="nav col-md-6 justify-content-center mb-2 mb-md-0">
     <li><%= link_to "ホーム", root_path, class: "nav-link px-2 link-secondary" %></li>
     <% if logged_in? %>
       <li><%= link_to "今日の記録", new_user_diary_path(current_user), class: "nav-link px-2 link-secondary" %></li>
