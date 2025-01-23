@@ -1,11 +1,16 @@
 class DiariesController < ApplicationController
 
+  def index
+    @diaries = current_user.diaries.order(created_at: :desc)
+  end
+
   def new
     @diary = current_user.diaries.build
   end
 
   def create
     @diary = current_user.diaries.build(diary_params)
+    @diary.written_on = Time.current
     if @diary.save
       flash[:success] = "今日の日記を投稿しました。"
       redirect_to root_path
@@ -40,6 +45,6 @@ class DiariesController < ApplicationController
   private
 
     def diary_params
-      params.require(:diary).permit(:tutle, :content, :written_on, :tag_list)
+      params.require(:diary).permit(:title, :content, :written_on, :tag_list)
     end
 end
