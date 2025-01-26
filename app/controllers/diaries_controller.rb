@@ -13,7 +13,7 @@ class DiariesController < ApplicationController
     @diary.written_on = Time.current
     if @diary.save
       flash[:success] = "今日の日記を投稿しました。"
-      redirect_to root_path
+      redirect_to user_diaries_path(current_user)
     else
       flash.now[:danger] = "日記を投稿できませんでした。"
       render :new, status: :unprocessable_entity
@@ -28,7 +28,7 @@ class DiariesController < ApplicationController
     @diary = current_user.diaries.find(params[:id])
     if @diary.update(diary_params)
       flash[:success] = "日記を更新しました。"
-      redirect_to root_path
+      redirect_to user_diaries_path(current_user)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class DiariesController < ApplicationController
     @diary = current_user.diaries.find(params[:id])
     @diary.destroy!
     flash[:success] = "日記を削除しました。"
-    redirect_to root_path, status: :see_other
+    redirect_to user_diaries_path(current_user), status: :see_other
   end
 
   private

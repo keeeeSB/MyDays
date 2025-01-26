@@ -6,9 +6,11 @@
   </div>
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    <li><%= link_to "ホーム", user_diaries_path(current_user), class: "nav-link px-2 link-secondary" %></li>
     <% if logged_in? %>
+      <li><%= link_to "ホーム", user_diaries_path(current_user), class: "nav-link px-2 link-secondary" %></li>
       <li><%= link_to "今日の記録", new_user_diary_path(current_user), class: "nav-link px-2 link-secondary" %></li>
+    <% else %>
+      <li><%= link_to "ホーム", root_path, class: "nav-link px-2 link-secondary" %></li>
     <% end %>
   </ul>
 

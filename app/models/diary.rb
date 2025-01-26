@@ -3,6 +3,10 @@ class Diary < ApplicationRecord
   has_many :diary_tags
   has_many :tags, through: :diary_tags
 
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :content, presence: true, length: { maximum: 150 }
+  validates :written_on, presence: true
+
   # 仮装属性：　タグリストを文字列として取得
   def tag_list
     tags.map(&:name).join(' ')
