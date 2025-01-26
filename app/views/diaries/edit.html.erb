@@ -1,0 +1,29 @@
+<h2 class="text-center mb-3">日記の編集</h2>
+
+<%= form_with(model: @diary, url: user_diary_path(current_user, @diary), local: true) do |f| %>
+  <%= render "shared/error_messages", object: @diary %>
+
+  <div class="mb-3">
+    <%= f.label :title, "タイトル", class: "form-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :content, "内容", class: "form-label" %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :written_on, "日付", class: "form-label" %>
+    <%= f.date_field :written_on, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :tags, "タグ付け（スペース区切りで入力）", class: "form-label" %>
+    <%= f.text_field :tag_list, class: "form-control" %>
+  </div>
+
+  <div class="text-center mb-3">
+    <%= f.submit "更新", class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>

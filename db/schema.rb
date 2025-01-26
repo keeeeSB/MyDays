@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_01_19_045200) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_19_054525) do
+  create_table "diaries", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.datetime "written_on", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_diaries_on_user_id"
+  end
+
+  create_table "diary_tags", force: :cascade do |t|
+    t.integer "diary_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diary_id"], name: "index_diary_tags_on_diary_id"
+    t.index ["tag_id"], name: "index_diary_tags_on_tag_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -31,4 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_19_045200) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "diaries", "users"
+  add_foreign_key "diary_tags", "diaries"
+  add_foreign_key "diary_tags", "tags"
 end

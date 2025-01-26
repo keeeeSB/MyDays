@@ -1,0 +1,30 @@
+<h2 class="text-center mb-4">ボクの日記</h2>
+
+<% if logged_in? %>
+  <% if @diaries.present? %>
+    <% @diaries.each do |diary| %>
+      <div class="card mb-3">
+        <div class="card-header text-center">
+          <h4 class="cared-title"><%= diary.title %></h4>
+          <p class="card-subtitle text-muted">
+            日付： <%= formatted_date(diary) %>
+          </p>
+        </div>
+        <div class="card-body text-center">
+          <p class="card-text"><%= diary.content %></p>
+          <% if diary.tags.present? %>
+            <p class="mt-3">
+              <% diary.tags.each do |tag| %>
+                <span class="badge bg-success">
+                  <%= link_to tag.name, "#", class: "text-white text-decoration-none" %>
+                </span>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-center text-muted">まだ日記がありません。</p>
+  <% end %>
+<% end %>
