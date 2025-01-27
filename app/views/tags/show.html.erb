@@ -1,0 +1,11 @@
+<h2 class="text-center mb-3">
+  <strong class="text-success">＃<%= @tag.name %></strong>の日記一覧
+</h2>
+
+<% if @tag.diaries.present? %>
+  <% @tag.diaries.each do |diary| %>
+    <%= render "shared/diary", diary: diary %>
+  <% end %>
+<% else %>
+  <p class="text-center text-muted">まだ日記がありません。</p>
+<% end %>
