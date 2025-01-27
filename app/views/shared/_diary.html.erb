@@ -11,7 +11,7 @@
       <h5 class="mt-3">
         <% diary.tags.each do |tag| %>
           <span class="badge bg-success">
-            <%= link_to tag.name, "#", class: "text-white text-decoration-none" %>
+            <%= link_to tag.name, tag_path(tag), class: "text-white text-decoration-none" %>
           </span>
         <% end %>
       </h5>

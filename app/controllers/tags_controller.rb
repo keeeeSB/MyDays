@@ -4,6 +4,10 @@ class TagsController < ApplicationController
     @tag = Tag.create(tag_params)
   end
 
+  def show
+    @tag = Tag.find(params[:id])
+  end
+
   def update
     @tag = Tag.find(params[:id])
     @tag.update(tag_params)

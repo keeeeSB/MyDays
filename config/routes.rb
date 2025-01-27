@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :diaries
   end
   resources :account_activations, only: [:edit]
-  resources :tags, only: [:create, :update]
+  resources :tags, only: [:create, :show, :update]
 end
